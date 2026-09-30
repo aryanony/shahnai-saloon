@@ -1,4 +1,41 @@
+# robots.txt for Shahnaz Beauty Parlour (https://shahnazsalon.vercel.app)
+# Optimized for Google, Bing, Apple, and AI search engines (Perplexity, ChatGPT, Gemini, Claude)
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /apps-script/
 
-Sitemap: https://shahnaz-beauty-parlour.vercel.app/sitemap.xml
+# AI Search and Answer Engines (AEO & AIO)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+Sitemap: https://shahnazsalon.vercel.app/sitemap.xml
+Host: https://shahnazsalon.vercel.app

@@ -7,7 +7,25 @@ from shared_blocks import (
 )
 
 # ============================================================== HOMEPAGE
-WEBSITE_SCHEMA = {"@context": "https://schema.org", "@type": "WebSite", "name": PRIMARY, "url": SITE + "/"}
+WEBSITE_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": SITE + "/#website",
+    "name": PRIMARY,
+    "alternateName": [SECONDARY, "Shahnaz Salon Patna", "Shahnai Salon Raja Bazar"],
+    "url": SITE + "/",
+    "image": f"{SITE}/public/shahnaz-og.png",
+    "description": "Best Unisex Salon and Bridal Makeup Studio in Raja Bazar, Sheikhpura, Patna. Certified Parul Garg Academy Artistry.",
+    "inLanguage": "en-IN"
+}
+
+home_faqs = [
+    (f"Where is {PRIMARY} located in Patna?", f"{PRIMARY} is located at Vishal Market, near Pillar No. 76, Sheikhpura, Raja Bazar, Patna, Bihar 800014 on Bailey Road."),
+    (f"Who is the lead bridal makeup artist at {PRIMARY}?", f"Puja Gupta is the lead bridal artist, professionally certified by Parul Garg Makeup Academy, specializing in HD bridal, engagement, reception, and party looks."),
+    (f"Is {PRIMARY} a unisex salon?", f"Yes. Alongside its bridal makeup studio, {PRIMARY} offers full salon services for women and men, including hairstyling, skin care, facials, and grooming."),
+    (f"Is {PRIMARY} the same salon as {SECONDARY}?", f"Yes. Regulars know this address as {SECONDARY}. The salon at Vishal Market, Raja Bazar operates as {PRIMARY}."),
+    ("How do I book an appointment or bridal package?", f"You can request an appointment online via our booking form or directly message on WhatsApp at {CFG['phone']}. Our team confirms details directly with you.")
+]
 
 home_body = f'''  <section class="hero">
     <div class="container hero__grid">
@@ -30,7 +48,7 @@ home_body = f'''  <section class="hero">
 {TRUST_STRIP}
   <section class="section" aria-labelledby="bridal-h">
     <div class="container split">
-{frames_block("Bridal look", "Reception look")}
+{frames_block("Signature Bridal", "HD Royal Glam", img_a="/public/bridal.jpg", img_b="/public/images/bridal-portrait.jpg")}
       <div class="reveal">
         <p class="pull">A bridal specialty, built on real experience.</p>
         <p>{e(PRIMARY)} is a unisex salon with a strong focus on bridal makeup and styling &mdash; from the first trial to the wedding morning, planned around your face, your outfit and your day.</p>
@@ -78,9 +96,12 @@ home_body = f'''  <section class="hero">
     <div class="container">
       <div class="center head reveal"><hr class="rule"><h2 id="gallery-h">Real work from the salon</h2></div>
       <div class="gallery reveal">
-        <figure><div class="ph-box" role="img" aria-label="Placeholder for real bridal photography"></div><figcaption class="muted small">Add real photography</figcaption></figure>
-        <figure><div class="ph-box" role="img" aria-label="Placeholder for real bridal photography"></div><figcaption class="muted small">Add real photography</figcaption></figure>
-        <figure><div class="ph-box" role="img" aria-label="Placeholder for real bridal photography"></div><figcaption class="muted small">Add real photography</figcaption></figure>
+        <figure><img src="/public/bridal.jpg" alt="Real Bridal Transformation by Shahnaz Beauty Parlour" width="400" height="500" loading="lazy"><figcaption>Signature Bridal Transformation</figcaption></figure>
+        <figure><img src="/public/images/bridal-portrait.jpg" alt="Royal HD Bridal Artistry by Puja Gupta" width="400" height="500" loading="lazy"><figcaption>Royal HD Bridal Artistry</figcaption></figure>
+        <figure><img src="/public/images/hair-styling.jpg" alt="Luxury Hair Styling &amp; Occasion Waves" width="400" height="500" loading="lazy"><figcaption>Luxury Hair Styling &amp; Waves</figcaption></figure>
+        <figure><img src="/public/images/mens-styling.jpg" alt="Executive Men's Grooming &amp; Styling" width="400" height="500" loading="lazy"><figcaption>Executive Men's Grooming</figcaption></figure>
+        <figure><img src="/public/images/facial-treatment.jpg" alt="Golden Glow Skin Therapy &amp; Facial" width="400" height="500" loading="lazy"><figcaption>Golden Glow Skin Therapy</figcaption></figure>
+        <figure><img src="/public/hero.jpg" alt="Puja Gupta Certified by Parul Garg Makeup Academy" width="400" height="500" loading="lazy"><figcaption>Parul Garg Certified Artistry</figcaption></figure>
       </div>
       <div class="center mt-md"><a class="btn btn-line" href="/gallery/" data-analytics="gallery_open" data-analytics-label="home">See Full Gallery</a></div>
     </div>
@@ -114,18 +135,14 @@ home_body = f'''  <section class="hero">
     </div>
   </section>
 
-{faq_block([
-    ("Is " + PRIMARY + " a unisex salon?", "Yes. Alongside its bridal makeup specialty, the salon offers services for men and women, including hairstyling, facials and grooming."),
-    ("Is " + PRIMARY + " the same place as " + SECONDARY + "?", "Yes, according to the current operator " + SECONDARY + " is an earlier/alternate name for the same Raja Bazar salon, now operating as " + PRIMARY + ". See the full explanation on the " + SECONDARY + " page."),
-    ("How do I request an appointment?", 'Use the <a href="/book/">booking request form</a> &mdash; choose a service and preferred date, and the salon will contact you on WhatsApp or by phone to confirm.'),
-])}
+{faq_block(home_faqs)}
 {FINAL_CTA}'''
 
 write("index.html", page(
-    f"{PRIMARY} | Unisex Salon & Bridal Makeup in Patna",
-    f"{PRIMARY} in Raja Bazar, Sheikhpura, Patna \u2014 unisex salon and bridal makeup studio. Request an appointment online in under a minute.",
+    f"{PRIMARY} | Best Unisex Salon &amp; Bridal Makeup in Patna",
+    f"{PRIMARY} at Pillar No. 76, Raja Bazar, Sheikhpura, Patna \u2014 certified bridal makeup by Parul Garg Academy alumna Puja Gupta, hair styling, facials and unisex grooming.",
     SITE + "/", "/", home_body,
-    extra_head=ldjson(LOCAL_BUSINESS) + ldjson(WEBSITE_SCHEMA),
+    extra_head=ldjson(LOCAL_BUSINESS) + ldjson(WEBSITE_SCHEMA) + ldjson(faqpage(home_faqs)),
     extra_scripts='<script src="/src/js/home.js"></script>\n'
 ))
 

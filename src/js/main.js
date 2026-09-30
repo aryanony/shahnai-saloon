@@ -64,6 +64,47 @@
     }
   }
 
+  /* ---- Site loader ---- */
+  var loader = document.getElementById("site-loader");
+  if (loader) {
+    var minDisplayTime = 650;
+    var startTime = (window.performance && performance.now) ? performance.now() : Date.now();
+    var dismissed = false;
+
+    var serviceItems = loader.querySelectorAll(".loader__service-item");
+    var activeIdx = 0;
+    var serviceInterval = null;
+    if (serviceItems.length > 1) {
+      serviceInterval = setInterval(function () {
+        serviceItems[activeIdx].classList.remove("active");
+        activeIdx = (activeIdx + 1) % serviceItems.length;
+        serviceItems[activeIdx].classList.add("active");
+      }, 480);
+    }
+
+    function dismissLoader() {
+      if (dismissed) return;
+      dismissed = true;
+      if (serviceInterval) clearInterval(serviceInterval);
+      var now = (window.performance && performance.now) ? performance.now() : Date.now();
+      var elapsed = now - startTime;
+      var remaining = Math.max(0, minDisplayTime - elapsed);
+      setTimeout(function () {
+        loader.classList.add("loaded");
+        setTimeout(function () {
+          if (loader.parentNode) loader.parentNode.removeChild(loader);
+        }, 550);
+      }, remaining);
+    }
+
+    if (document.readyState === "complete") {
+      dismissLoader();
+    } else {
+      window.addEventListener("load", dismissLoader);
+      setTimeout(dismissLoader, 1300); // failsafe
+    }
+  }
+
   /* ---- Generic click analytics: any element with data-analytics="event_name" ---- */
   document.addEventListener("click", function (e) {
     var el = e.target.closest("[data-analytics]");

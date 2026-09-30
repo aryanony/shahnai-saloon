@@ -39,11 +39,25 @@ bridal_body = f'''  <section class="hero section-sm">
 
   <section class="section ink">
     <div class="container split">
-{frames_block("Bridal look", "Trial look")}
+{frames_block("Signature Bridal Look", "HD Royal Glam", img_a="/public/bridal.jpg", img_b="/public/images/bridal-portrait.jpg")}
       <div class="reveal">
-        <p class="pull">Real bridal work, not stock photography.</p>
-        <p class="muted">This section is set up for the salon to add real, optimized photographs of actual bridal work. No placeholder or stock imagery is presented to visitors as real client work.</p>
-        <a class="btn btn-line" href="/gallery/">See Full Gallery</a>
+        <p class="pull">Real bridal work, certified artistry.</p>
+        <p class="muted">Authentic bridal transformations and certified expertise directly from our salon floor at Vishal Market, Raja Bazar, Patna. Every look is customized to your unique features, outfit, and special day.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="/book/">Book Bridal Consultation</a>
+          <a class="btn btn-line" href="/gallery/">See Full Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="head reveal"><hr class="rule"><h2>Bridal Craft &amp; Preparations</h2></div>
+      <div class="gallery reveal">
+        <figure><img src="/public/images/bridal-portrait.jpg" alt="HD Bridal Makeup Artistry in Patna" width="400" height="500" loading="lazy"><figcaption>HD Royal Bridal Artistry</figcaption></figure>
+        <figure><img src="/public/images/bridal-mehndi.jpg" alt="Intricate Henna &amp; Bridal Mehndi Art" width="400" height="500" loading="lazy"><figcaption>Intricate Bridal Henna Art</figcaption></figure>
+        <figure><img src="/public/images/bridal-glam.jpg" alt="Occasion &amp; Saree Draping" width="400" height="500" loading="lazy"><figcaption>Occasion Draping &amp; Styling</figcaption></figure>
       </div>
     </div>
   </section>
@@ -83,18 +97,41 @@ unisex_body = f'''  <section class="hero section-sm">
     </div>
   </section>
 
+  <section class="section ink">
+    <div class="container split">
+{frames_block("Executive Grooming", "Luxury Hair Styling", img_a="/public/images/mens-styling.jpg", img_b="/public/images/hair-styling.jpg")}
+      <div class="reveal">
+        <p class="pull">Complete salon care for men, women and families.</p>
+        <p class="muted">From precision haircuts and executive beard grooming to rejuvenating skin therapies, hair spa, and occasion styling. Step into our welcoming space in Vishal Market, Raja Bazar.</p>
+        <a class="btn btn-gold" href="/services/">View Services &amp; Prices</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section prose">
     <div class="container narrow">
       <h2>Services for everyone</h2>
       <ul>
-        <li><strong>Hair Styling</strong> &mdash; for everyday and occasion looks.</li>
-        <li><strong>Facial / Skin Care</strong> &mdash; beauty and skin care treatments.</li>
-        <li><strong>Men&rsquo;s Grooming</strong> &mdash; grooming services for men.</li>
-        <li><strong>Party Makeup</strong> &mdash; for functions and celebrations.</li>
+        <li><strong>Hair Styling &amp; Color</strong> &mdash; for everyday haircuts, balayage, and occasion looks.</li>
+        <li><strong>Facial &amp; Skin Care</strong> &mdash; deep cleansing and radiant glow treatments.</li>
+        <li><strong>Men&rsquo;s Grooming</strong> &mdash; beard shaping, fade haircuts, and facial therapy.</li>
+        <li><strong>Party &amp; Occasion Makeup</strong> &mdash; for family functions, engagements, and festivities.</li>
       </ul>
       <p>The current list of active services and prices is always on the <a href="/services/">services page</a>, sourced directly from the salon&rsquo;s own records.</p>
       <h2>One salon, one address</h2>
       <p>{e(PRIMARY)} operates from a single location at Vishal Market, near Pillar No. 76, Sheikhpura, Raja Bazar, Patna, Bihar 800014 &mdash; the same salon behind its bridal makeup work, previously known to some regulars as <a href="/shahnai-unisex-salon-patna/">Shahnai Unisex Salon</a>.</p>
+    </div>
+  </section>
+
+  <section class="section ivory-2">
+    <div class="container">
+      <div class="head reveal"><hr class="rule"><h2>Salon Floor Highlights</h2></div>
+      <div class="gallery reveal">
+        <figure><img src="/public/images/mens-styling.jpg" alt="Executive Beard Grooming" width="400" height="500" loading="lazy"><figcaption>Executive Men's Grooming</figcaption></figure>
+        <figure><img src="/public/images/hair-color.jpg" alt="Balayage &amp; Hair Color" width="400" height="500" loading="lazy"><figcaption>Balayage &amp; Hair Color</figcaption></figure>
+        <figure><img src="/public/images/facial-treatment.jpg" alt="Golden Glow Skin Therapy" width="400" height="500" loading="lazy"><figcaption>Golden Glow Skin Care</figcaption></figure>
+        <figure><img src="/public/images/salon-ambiance.jpg" alt="Modern Salon Ambiance" width="400" height="500" loading="lazy"><figcaption>Modern Salon Floor</figcaption></figure>
+      </div>
     </div>
   </section>
 

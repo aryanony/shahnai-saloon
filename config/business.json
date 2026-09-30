@@ -17,8 +17,11 @@
   "mapsUrl": "https://maps.app.goo.gl/wbwh2pQEJSw5dgME8?g_st=awb",
   "instagramUrl": "https://instagram.com/pujaguptamakeup",
   "reviewUrl": "",
-  "siteUrl": "https://shahnaz-beauty-parlour.vercel.app",
-  "geo": null,
+  "siteUrl": "https://shahnazsalon.vercel.app",
+  "geo": {
+    "latitude": 25.6093,
+    "longitude": 85.0886
+  },
   "analytics": { "gtmId": "", "clarityId": "", "consentRequired": true },
   "verification": {
     "brandRights": "pending",
@@ -28,6 +31,6 @@
     "phones": "client-provided",
     "mapsUrl": "client-provided",
     "instagram": "client-provided",
-    "siteUrl": "interim"
+    "siteUrl": "permanent-live"
   }
 }
