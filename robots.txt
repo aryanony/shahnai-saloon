@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shahnaz-beauty-parlour.vercel.app/sitemap.xml

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Send a Booking Request | Shahnaz Beauty Parlour, Patna</title>
+<meta name="description" content="Request an appointment at Shahnaz Beauty Parlour in Raja Bazar, Patna. Choose your service and preferred date — we&#x27;ll contact you to confirm.">
+<link rel="canonical" href="https://shahnaz-beauty-parlour.vercel.app/book/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Send a Booking Request | Shahnaz Beauty Parlour, Patna">
+<meta property="og:description" content="Request an appointment at Shahnaz Beauty Parlour in Raja Bazar, Patna. Choose your service and preferred date — we&#x27;ll contact you to confirm.">
+<meta property="og:url" content="https://shahnaz-beauty-parlour.vercel.app/book/">
+<meta property="og:site_name" content="Shahnaz Beauty Parlour">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="/public/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/src/css/styles.css">
+<script src="/src/js/boot.js"></script>
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="container bar">
+    <a class="brand" href="/">
+      <span class="brand__name" data-bind-text="brand">Shahnaz Beauty Parlour</span>
+      <span class="brand__tag" data-bind-text="descriptor">Unisex Salon &amp; Bridal Makeup Studio</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul id="primary-nav">
+        <li><a href="/bridal-makeup-patna/">Bridal</a></li>
+        <li><a href="/unisex-salon-patna/">Salon</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+      </ul>
+      <a class="btn btn-gold" href="/book/" aria-current="page" data-analytics="booking_start" data-analytics-label="header">Send Booking Request</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section-sm ink">
+    <div class="container narrow center">
+      <hr class="rule">
+      <h1>Send a Booking Request</h1>
+      <p class="lede">Choose your service and preferred date. Takes less than a minute &mdash; we&rsquo;ll contact you to confirm.</p>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container book-grid">
+      <div class="reveal">
+        <p class="pull">This is a request, not a live calendar.</p>
+        <p>Submitting the form sends your details to the salon. It does not mean the appointment is confirmed &mdash; the salon will reach out on WhatsApp or by phone to agree the exact time before it&rsquo;s final.</p>
+        <p class="muted small">Prefer to skip the form? Call or WhatsApp us directly using the buttons in the footer.</p>
+      </div>
+
+      <div>
+        <div class="panel" id="panel-form">
+          <form id="booking-form" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required maxlength="60">
+              <p class="err" role="alert">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label for="mobile">Mobile number</label>
+              <input type="tel" id="mobile" name="mobile" autocomplete="tel" inputmode="tel" placeholder="98xxxxxxxx" required>
+              <p class="err" role="alert">Please enter a valid 10-digit mobile number.</p>
+            </div>
+            <div class="field">
+              <label for="service">Service</label>
+              <select id="service" name="serviceId" required>
+                <option value="" disabled selected>Loading services&hellip;</option>
+              </select>
+              <p class="err" role="alert">Please choose a service.</p>
+            </div>
+            <div class="field">
+              <label for="preferredDate">Preferred date</label>
+              <input type="date" id="preferredDate" name="preferredDate" required>
+              <p class="err" role="alert">Please choose today or a later date.</p>
+            </div>
+            <div class="field">
+              <label for="preferredTime">Preferred time <span class="opt">(optional)</span></label>
+              <input type="time" id="preferredTime" name="preferredTime">
+            </div>
+            <fieldset class="field">
+              <legend>Additional services <span class="opt">(optional)</span></legend>
+              <div class="checks" id="addon-list"></div>
+            </fieldset>
+            <div class="field">
+              <label for="note">Anything we should know? <span class="opt">(optional)</span></label>
+              <textarea id="note" name="note" maxlength="300" rows="3"></textarea>
+              <p class="hint">Up to 300 characters.</p>
+              <p class="err" role="alert">Please keep your note under 300 characters.</p>
+            </div>
+            <div class="trap" aria-hidden="true">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+            </div>
+            <button class="btn btn-gold btn-block" type="submit" id="submit-btn">
+              <span class="spin" aria-hidden="true"></span>
+              <span class="label">Send Booking Request</span>
+            </button>
+            <p class="foot-note muted">Takes less than a minute. We&rsquo;ll contact you to confirm.</p>
+          </form>
+        </div>
+
+        <div class="panel state" id="panel-success">
+          <div class="center">
+            <span class="tick" aria-hidden="true">&#10003;</span>
+            <p class="mark">Request received</p>
+            <p id="success-message">Your booking request has been received. We&rsquo;ll contact you to confirm.</p>
+            <span class="bid">Booking ID<br><span id="booking-id"></span></span>
+            <div class="actions">
+              <a class="btn btn-dark" href="tel:+917645812695" data-bind-href="phone" data-analytics="phone_click" data-analytics-label="booking_success">Call</a>
+              <a class="btn btn-gold" href="https://wa.me/917645812695" data-bind-href="whatsapp" data-wa-text="Hi, following up on my booking request." target="_blank" rel="noopener" data-analytics="whatsapp_click" data-analytics-label="booking_success">WhatsApp</a>
+              <a class="btn btn-line" href="/services/">Explore Services</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel state" id="panel-error">
+          <div class="center">
+            <p class="mark">We couldn&rsquo;t send that</p>
+            <p>Something went wrong on our end and your request didn&rsquo;t go through. Please call or message us directly and we&rsquo;ll take your details right away.</p>
+            <div class="actions">
+              <a class="btn btn-dark" href="tel:+917645812695" data-bind-href="phone" data-analytics="phone_click" data-analytics-label="booking_error">Call</a>
+              <a class="btn btn-gold" id="wa-fallback" href="https://wa.me/917645812695" data-bind-href="whatsapp" target="_blank" rel="noopener" data-analytics="whatsapp_click" data-analytics-label="booking_error">WhatsApp Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h2 data-bind-text="brand">Shahnaz Beauty Parlour</h2>
+      <p data-bind-text="descriptor">Unisex Salon &amp; Bridal Makeup Studio</p>
+      <p data-bind-text="address">Vishal Market, Near Pillar No. 76, Sheikhpura, Raja Bazar, Patna, Bihar 800014</p>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="/bridal-makeup-patna/">Bridal</a></li>
+        <li><a href="/unisex-salon-patna/">Salon</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/gallery/">Gallery</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/book/">Send Booking Request</a></li>
+        <li><a href="/shahnai-unisex-salon-patna/">Shahnai Unisex Salon</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Connect</h2>
+      <ul>
+        <li><a href="tel:+917645812695" data-bind-href="phone" data-bind-text="phone" data-analytics="phone_click" data-analytics-label="footer">+917645812695</a></li>
+        <li><a href="https://wa.me/917645812695" data-bind-href="whatsapp" data-wa-text="Hi, I'd like to ask about an appointment." target="_blank" rel="noopener" data-analytics="whatsapp_click" data-analytics-label="footer">WhatsApp</a></li>
+        <li><a href="https://instagram.com/pujaguptamakeup" data-bind-href="instagram" target="_blank" rel="noopener" data-analytics="instagram_click" data-analytics-label="footer">Instagram</a></li>
+        <li><a href="https://maps.app.goo.gl/wbwh2pQEJSw5dgME8?g_st=awb" data-bind-href="maps" target="_blank" rel="noopener" data-analytics="directions_click" data-analytics-label="footer">Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; <span data-year></span> Shahnaz Beauty Parlour. All rights reserved.</span>
+    <span><a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms/">Terms</a></span>
+  </div>
+</footer>
+
+<nav class="sticky-bar" aria-label="Quick actions">
+  <a href="tel:+917645812695" data-bind-href="phone" data-analytics="phone_click" data-analytics-label="sticky_bar">Call</a>
+  <a href="https://wa.me/917645812695" data-bind-href="whatsapp" data-wa-text="Hi, I'd like to ask about an appointment." target="_blank" rel="noopener" data-analytics="whatsapp_click" data-analytics-label="sticky_bar">WhatsApp</a>
+  <a class="go" href="/book/" data-analytics="booking_start" data-analytics-label="sticky_bar">Book Now</a>
+</nav>
+
+<div class="consent" data-consent hidden role="dialog" aria-label="Cookie consent">
+  <p>We use optional analytics (Google Analytics, Microsoft Clarity) to understand how the site is used. No booking details are ever sent to them.</p>
+  <div class="row">
+    <button type="button" class="btn btn-gold" data-consent-accept>Accept</button>
+    <button type="button" class="btn btn-dark" data-consent-decline>Decline</button>
+  </div>
+</div>
+
+<script src="/src/js/analytics.js"></script>
+<script src="/src/js/catalog.js"></script>
+<script src="/src/js/main.js"></script>
+<script src="/src/js/booking.js"></script>
+</body>
+</html>

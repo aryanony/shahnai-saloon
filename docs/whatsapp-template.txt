@@ -1,0 +1,48 @@
+WhatsApp Business template — submit this for approval before enabling AUTO_NOTIFY
+=====================================================================================
+
+Both providers (Meta WhatsApp Business Platform and Twilio) require a business-
+initiated message to use a pre-approved template. Submit the template below,
+category UTILITY, language English (en).
+
+Template name suggestion: booking_request_notify
+
+Body (8 variables, in this exact order — matches src/js/message.js templateParams()):
+
+  New website booking request.
+
+  ID: {{1}}
+  Name: {{2}}
+  Mobile: {{3}}
+  Service: {{4}}
+  Add-ons: {{5}}
+  Preferred date: {{6}}
+  Preferred time: {{7}}
+  Note: {{8}}
+
+Sample values for the approval submission:
+  {{1}} SBP-260002
+  {{2}} Priya Kumari
+  {{3}} +91 98765 43210
+  {{4}} Bridal Makeup
+  {{5}} Bridal Hairstyling
+  {{6}} 12 Oct 2026
+  {{7}} 10:30 AM
+  {{8}} Please call before confirming.
+
+Once approved:
+  - Meta (Cloud API): set WHATSAPP_TEMPLATE_NAME to the approved template's exact
+    name, and WHATSAPP_TEMPLATE_LANG to the approved language code.
+  - Twilio: create the same template through Twilio Content API / Console,
+    and set TWILIO_CONTENT_SID to the resulting Content SID.
+
+Do not edit the variable order without also updating
+src/js/message.js#templateParams() and api/_lib/whatsapp.js — both providers
+insert variables positionally, not by name.
+
+Fallback: if you would rather not go through template approval at all, leave
+Settings!WHATSAPP_MODE as CLICK_TO_CHAT. This needs no template, no approval,
+and no provider account — the customer's browser opens a WhatsApp chat with
+the message already typed, and the owner just taps send. Most small salons
+should start here and move to AUTO_NOTIFY only if the extra automation is
+worth the setup.

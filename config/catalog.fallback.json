@@ -1,0 +1,21 @@
+{
+  "services": [
+    { "id": "BRIDAL",     "name": "Bridal Makeup",         "category": "Bridal",   "price": 0, "priceType": "Enquiry" },
+    { "id": "ENGAGEMENT", "name": "Engagement Makeup",     "category": "Bridal",   "price": 0, "priceType": "Enquiry" },
+    { "id": "RECEPTION",  "name": "Reception Makeup",      "category": "Bridal",   "price": 0, "priceType": "Enquiry" },
+    { "id": "PARTY",      "name": "Party Makeup",          "category": "Makeup",   "price": 0, "priceType": "Enquiry" },
+    { "id": "PREBRIDAL",  "name": "Pre-Bridal Services",   "category": "Beauty",   "price": 0, "priceType": "Enquiry" },
+    { "id": "HAIR",       "name": "Hair Styling",          "category": "Hair",     "price": 0, "priceType": "Enquiry" },
+    { "id": "FACIAL",     "name": "Facial / Skin Care",    "category": "Beauty",   "price": 0, "priceType": "Enquiry" },
+    { "id": "GROOMING",   "name": "Men's Grooming",        "category": "Grooming", "price": 0, "priceType": "Enquiry" },
+    { "id": "OTHER",      "name": "Other / Ask Us",        "category": "Other",    "price": 0, "priceType": "Enquiry" }
+  ],
+  "additionalServices": [
+    { "id": "HAIR",    "name": "Bridal Hairstyling",      "price": 0 },
+    { "id": "DRAPING", "name": "Saree / Dupatta Draping", "price": 0 },
+    { "id": "LASHES",  "name": "Premium Lashes",          "price": 0 },
+    { "id": "TRIAL",   "name": "Bridal Makeup Trial",     "price": 0 },
+    { "id": "FAMILY",  "name": "Family / Guest Makeup",   "price": 0 },
+    { "id": "OTHER",   "name": "Other Requirement",       "price": 0 }
+  ]
+}

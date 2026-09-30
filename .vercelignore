@@ -1,0 +1,7 @@
+scripts/
+*.md
+!README.md
+sheet/
+tests/
+.env
+.env.local
