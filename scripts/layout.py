@@ -30,6 +30,7 @@ def e(s): return html.escape(str(s), quote=True)
 def head_common(title, description, canonical, extra_head="", robots=""):
     robots_tag = f'\n<meta name="robots" content="{e(robots)}">' if robots else '\n<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">'
     og_image = f"{SITE}/public/shahnaz-og.png"
+    og_image_jpg = f"{SITE}/public/shahnaz-og.jpg"
     return f'''<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
@@ -53,8 +54,14 @@ def head_common(title, description, canonical, extra_head="", robots=""):
 <meta property="og:image:width" content="1672">
 <meta property="og:image:height" content="941">
 <meta property="og:image:alt" content="{e(CFG['primaryBrand'])} - {e(CFG['descriptor'])} in Raja Bazar, Patna">
+<meta property="og:image" content="{og_image_jpg}">
+<meta property="og:image:secure_url" content="{og_image_jpg}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:domain" content="shahnazsalon.vercel.app">
+<meta name="twitter:url" content="{e(canonical)}">
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(description)}">
 <meta name="twitter:image" content="{og_image}">

@@ -7,6 +7,7 @@
     { "source": "/hero.jpg", "destination": "/public/hero.jpg" },
     { "source": "/bridal.jpg", "destination": "/public/bridal.jpg" },
     { "source": "/shahnaz-og.png", "destination": "/public/shahnaz-og.png" },
+    { "source": "/shahnaz-og.jpg", "destination": "/public/shahnaz-og.jpg" },
     { "source": "/parul-garg.jpg", "destination": "/public/parul-garg.jpg" },
     { "source": "/favicon.ico", "destination": "/public/icon.png" },
     { "source": "/images/(.*)", "destination": "/public/images/$1" }
