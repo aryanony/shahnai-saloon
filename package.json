@@ -5,6 +5,7 @@
   "description": "Shahnaz Beauty Parlour (formerly Shahnai Unisex Salon) — website + Google Sheet booking pipeline.",
   "engines": { "node": ">=18" },
   "scripts": {
+    "build": "echo 'Static site ready'",
     "build:pages": "python3 scripts/build_pages.py && python3 scripts/build_bridal_unisex.py && python3 scripts/build_bridge.py && python3 scripts/build_info_pages.py && python3 scripts/build_faq_legal.py && python3 scripts/build_seo_files.py",
     "test": "node --test tests/*.test.js",
     "dev": "vercel dev",
