@@ -194,6 +194,15 @@ def page(title, description, canonical, current, body, extra_head="", extra_scri
     return f'''<!DOCTYPE html>
 <html lang="en-IN">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X17CB1KCGX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X17CB1KCGX');
+</script>
 {head_common(title, description, canonical, extra_head, robots)}
 </head>
 <body{cls}>
